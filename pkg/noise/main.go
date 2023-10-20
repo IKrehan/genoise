@@ -5,6 +5,7 @@ import (
 	"image"
 	"image/color"
 	"image/png"
+	"log"
 	"os"
 	"strings"
 )
@@ -41,6 +42,21 @@ func New(noiseType NoiseType) *Noise {
 
 func (noise Noise) Type() string {
 	return noise.noiseType.String()
+}
+
+func (noise Noise) GenerateMatrix(width, height int) [][]float64 {
+	matrix := make([][]float64, width)
+	for x := 0; x < width; x++ {
+		for y := 0; y < height; y++ {
+			value, err := noise.GetPositionValue(x, y)
+			if err != nil {
+				log.Fatal("Invalid Coords")
+			}
+			matrix[x] = append(matrix[x], value)
+		}
+	}
+
+	return matrix
 }
 
 func (noise Noise) GenerateImage(fileName string, width, height int) error {

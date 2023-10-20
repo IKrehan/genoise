@@ -3,7 +3,8 @@ package noise
 type NoiseType uint8
 
 const (
-	WhiteNoise NoiseType = iota
+	Hash NoiseType = iota
+	Value
 	Perlin
 	Worley
 	Voronoi
@@ -12,8 +13,10 @@ const (
 
 func (n NoiseType) String() string {
 	switch n {
-	case WhiteNoise:
-		return "white noise"
+	case Hash:
+		return "hash"
+	case Value:
+		return "value"
 	case Perlin:
 		return "perlin"
 	case Worley:

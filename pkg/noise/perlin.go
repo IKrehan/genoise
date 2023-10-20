@@ -2,6 +2,6 @@ package noise
 
 import "math/rand"
 
-func perlinStrategy(x, y int) (float32, error) {
-	return rand.Float32(), nil
+func perlinStrategy(x, y int) (float64, error) {
+	return rand.Float64(), nil
 }

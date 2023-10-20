@@ -1,7 +1,13 @@
 package noise
 
-import "math/rand"
+import (
+	"math"
+)
 
-func hashStrategy(x, y int) (float32, error) {
-	return rand.Float32(), nil
+func hashStrategy(x, y int) (float64, error) {
+	xmod, ymod, mod := 0.129898, 0.78233, 43758.5453
+	dot := math.Sin(float64(x)*xmod+float64(y)*ymod) * mod
+
+	_, res := math.Modf(dot)
+	return res, nil
 }

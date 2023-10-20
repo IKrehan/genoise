@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-type getPositionValueStrategy func(int, int) (float32, error)
+type getPositionValueStrategy func(int, int) (float64, error)
 
 type Noise struct {
 	noiseType        NoiseType
@@ -29,6 +29,8 @@ func New(noiseType NoiseType) *Noise {
 	case Voronoi:
 		strategy = hashStrategy
 	case Fractal:
+		strategy = hashStrategy
+	default:
 		strategy = hashStrategy
 	}
 

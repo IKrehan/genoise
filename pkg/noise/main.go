@@ -20,14 +20,16 @@ func New(noiseType NoiseType) *Noise {
 	var strategy getPositionValueStrategy
 
 	switch noiseType {
-	case Discrete:
-		strategy = discreteStrategy
-	case Bicubic:
-		strategy = discreteStrategy
+	case WhiteNoise:
+		strategy = whiteNoiseStrategy
 	case Perlin:
-		strategy = discreteStrategy
-	case Simplex:
-		strategy = discreteStrategy
+		strategy = whiteNoiseStrategy
+	case Worley:
+		strategy = whiteNoiseStrategy
+	case Voronoi:
+		strategy = whiteNoiseStrategy
+	case Fractal:
+		strategy = whiteNoiseStrategy
 	}
 
 	return &Noise{

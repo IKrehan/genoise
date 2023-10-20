@@ -24,7 +24,7 @@ func main() {
 		log.Fatalf("Value is not an integer: %v", heightInput)
 	}
 
-	noise := noise.New(noise.Discrete)
+	noise := noise.New(noise.WhiteNoise)
 	err = noise.GenerateImage(fileName, width, height)
 	if err != nil {
 		log.Fatal(err.Error())

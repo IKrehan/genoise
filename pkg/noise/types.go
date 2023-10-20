@@ -3,22 +3,25 @@ package noise
 type NoiseType uint8
 
 const (
-	Discrete NoiseType = iota
-	Bicubic
+	WhiteNoise NoiseType = iota
 	Perlin
-	Simplex
+	Worley
+	Voronoi
+	Fractal
 )
 
 func (n NoiseType) String() string {
 	switch n {
-	case Discrete:
-		return "discrete"
-	case Bicubic:
-		return "tricubic"
+	case WhiteNoise:
+		return "white noise"
 	case Perlin:
 		return "perlin"
-	case Simplex:
-		return "simplex"
+	case Worley:
+		return "worley"
+	case Voronoi:
+		return "voronoi"
+	case Fractal:
+		return "fractal"
 	default:
 		return "unknown"
 	}
